@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 
 export default function App() {
   return (
@@ -11,9 +11,31 @@ export default function App() {
           borderBottom: '2px solid black',
         }}
       >
-        <Link to="/invoices">Invoices</Link>
-        <br />
-        <Link to="/expenses">Expenses</Link>
+        <div className="nav">
+          <NavLink
+            style={({ isActive }) => {
+              return {
+                color: isActive ? '#000' : '',
+                background: isActive ? '#e6e6e6' : '',
+              };
+            }}
+            to="/invoices"
+          >
+            Invoices
+          </NavLink>
+
+          <NavLink
+            style={({ isActive }) => {
+              return {
+                color: isActive ? '#000' : '',
+                background: isActive ? '#e6e6e6' : '',
+              };
+            }}
+            to="/expenses"
+          >
+            Expenses
+          </NavLink>
+        </div>
       </nav>
       <Outlet />
     </div>
